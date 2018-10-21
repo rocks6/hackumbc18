@@ -18,15 +18,15 @@ def shuffle_and_convert(dictionary):
     [[x, y] for x in dictionary['text'] for y in dictionary['author']]
 
 total_word_count = 0
-f = open('../../data/anthem.txt', 'r')
+f = open('../../data/anthem.txt', 'r', encoding='utf8')
 anthem_text, count = text_to_data(f.read(), "ayn rand")
 total_word_count += count
 
-f = open('../../data/mobydick.txt', 'r')
+f = open('../../data/mobydick.txt', 'r', encoding='utf8')
 mobydick_text, count = text_to_data(f.read(), "herman melville")
 total_word_count += count
 
-f = open('../../data/alice.txt', 'r')
+f = open('../../data/alice.txt', 'r', encoding='utf8')
 alice_text, count = text_to_data(f.read(), 'lewis carroll')
 total_word_count += count
 
