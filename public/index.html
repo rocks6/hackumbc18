@@ -1,0 +1,124 @@
+<!DOCTYPE htlm>
+<html>
+
+
+
+    <!-- HEAD -->
+    <head>
+
+        <!-- Title-->
+        <title>Project Zebra</title>
+
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Match possible authors with text exerpts from unkown sources">
+        <meta name="keywords" content="NLP, Natural Language Processing, Machine Learning, Author">
+
+        <!-- Bootstrap 4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+        <!-- Our Custom CSS-->
+        <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+        <!-- Bring in Angular Js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+        <script src="components/authorController.js"></script>
+
+    </head>
+
+
+
+    <!-- BODY -->
+    <body>
+
+
+
+        <!-- NAVBAR -->
+        <li class="navbar">
+            <span>
+                <a href="#app">Try It Out!</a>
+                <a href="#contributors">Contributors</a>
+                <a href="#about">About</a>
+            </span>
+        </li>
+
+
+
+        <!-- ABOUT -->
+        <div class="about" id="about">
+            <div class="about-content">
+                <div class="container">
+                    <div>
+                        <h1>Project Zebra</h1>
+                    </div>
+                    <h3 class="mt-5">Provide possible authors (and their confidence levels) for an exerpt of text from an unkown source; Machine Learning and Natural Language Processing techniques are used to enable such a system.</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- CONTRIBUTORS -->
+        <div class="contributors" id="contributors">
+            <div class="container section-content">
+                <h1>Contributors:</h1>
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="img/marshal.JPG" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Marshal Dickey</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="img/steven_4.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Steven Byerly</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="img/robin.png" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Robin Roper</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- APP -->
+        <div class="app" id="app" ng-app="author" ng-controller="authorCtrl">
+            <div class="section-content">
+                <h1>Guess that Author!</h1>
+                <form ng-submit="getPossibleAuthors()">
+                    <div>
+                        <label for="exerpt">Exerpt:</label>
+                        <textarea id="exerpt" name="exerpt" ng-model="textModel"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Submit</button>
+                    </div>
+                  </form>
+            </div>
+            <div class="response">
+                <h1>CONTENT WILL GO HERE!</h1>
+            </div>
+        </div>
+
+
+
+        <!-- BOOTSTRAP 4 -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>        
+
+
+
+    </body>
+
+
+
+
+</html>
