@@ -1,9 +1,9 @@
 // BRING IN DEPENDENCIES
 const express = require('express');
 const path = require('path');
-var bodyParser = require('body-parser')
-
-
+var http = require('http');
+var requestify = require('requestify');
+const bodyParser = require('body-parser');
 
 // CREATE THE ROUTER OBJECT
 const router  = express.Router();
@@ -13,19 +13,20 @@ const router  = express.Router();
 // ROUTES
 
 // When someone hits the python endpoint...
-router.post('/possibleAuthors', (req, res) => {
-
-    // Var used to spawn the python script
-    const spawn = require('child_process').spawn;
-
-    // Run the python script
-    const pythonP = spawn('python', [path.resolve('scripts/python/test.py'), req.body.exerpt]);
-    
-    // If everything looked good, run the success function
-    pythonP.stdout.on('data', function(data) {
-        console.log(data.toString());
-        res.send(data.toString());
-    });
+router.post('/possibleAuthors', function(req, res) {
+	console.log(req.body);
+	requestify.post('http://localhost:5000/confidence', {
+		method: 'POST',
+		body: {
+    			exerpt: req.body.exerpt
+		},
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		datatype: 'json'
+	}).then(function(response) {
+	    res.send(response.getBody());
+	});
 });
 
 // Export the router

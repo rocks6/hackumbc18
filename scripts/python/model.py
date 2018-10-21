@@ -46,7 +46,7 @@ class MyServer(Flask):
             Activation('softmax')
         ])
         model.compile(loss='categorical_crossentropy',optimizer ='adam',metrics=['accuracy'])
-        model.fit(self.x_train, self.y_train, epochs=5, batch_size=32, verbose=1, validation_split=0.05)
+        model.fit(self.x_train, self.y_train, epochs=20, batch_size=64, verbose=1, validation_split=0.05)
         model._make_predict_function()
         self.model = model
 
@@ -104,12 +104,13 @@ app = MyServer(__name__)
 @app.route('/confidence', methods=['POST'])
 def returnConfidence():
     data = request.json
-    pred_x = app.conv_x(data['exerpt'], app.tokenizer)
+    print(request.json)
+    pred_x = app.conv_x(data['body']['exerpt'], app.tokenizer)
     pred = app.model.predict(pred_x)
-    return_data = {
-        "Author 1": pred[0][0],
-        "Author 2": pred[0][1],
-        "Author 3": pred[0][2]
-    }
-    return jsonify(str(return_data))
+    return_data = [
+        {"author": "Ayn Rand", "confidence": str(pred[0][0])},
+        {"author": "Herman Melville", "confidence": str(pred[0][1])},
+        {"author": "Lewis Carroll", "confidence": str(pred[0][2])}
+    ]
+    return jsonify("{" + str(return_data) +"}")
 
