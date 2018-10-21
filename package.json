@@ -1,0 +1,29 @@
+{
+  "name": "project_zebra",
+  "version": "1.0.0",
+  "description": "NLP to guess author of a written exerpt",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocks6/hackumbc18.git"
+  },
+  "keywords": [
+    "nlp",
+    "author"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocks6/hackumbc18/issues"
+  },
+  "homepage": "https://github.com/rocks6/hackumbc18#readme"
+}
